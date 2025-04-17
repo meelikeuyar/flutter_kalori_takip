@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_kalori_takip/hesaplaBMI.dart';
 import 'package:flutter_kalori_takip/hesaplaKalori.dart';
 
@@ -23,13 +24,21 @@ class _HomePageState extends State<HomePage> {
     "Çok Aktif": 1.725,
   };
 
+  final Color anaYesil = const Color(0xFF2E7D32);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title:
-            const Text("Kalori Takip", style: TextStyle(color: Colors.white)),
-        backgroundColor: Colors.green,
+        title: Text(
+          "Kalori Takip",
+          style: GoogleFonts.poppins(
+            color: Colors.white,
+            fontWeight: FontWeight.bold,
+            fontSize: 22,
+          ),
+        ),
+        backgroundColor: anaYesil,
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -44,19 +53,21 @@ class _HomePageState extends State<HomePage> {
                   height: 120,
                 ),
                 const SizedBox(height: 20),
-                const Text(
+                Text(
                   "Kalori Takip Uygulamasına Hoş Geldiniz!",
-                  style: TextStyle(
-                      fontSize: 24,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.green),
+                  style: GoogleFonts.poppins(
+                    fontSize: 24,
+                    fontWeight: FontWeight.w700,
+                    color: anaYesil,
+                  ),
                   textAlign: TextAlign.center,
                 ),
                 const SizedBox(height: 20),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    const Text("Cinsiyet: ", style: TextStyle(fontSize: 18)),
+                    Text("Cinsiyet: ",
+                        style: GoogleFonts.poppins(fontSize: 18)),
                     DropdownButton<String>(
                       value: cinsiyet,
                       onChanged: (String? newValue) {
@@ -68,7 +79,8 @@ class _HomePageState extends State<HomePage> {
                           .map<DropdownMenuItem<String>>((String value) {
                         return DropdownMenuItem<String>(
                           value: value,
-                          child: Text(value),
+                          child: Text(value,
+                              style: GoogleFonts.poppins(fontSize: 16)),
                         );
                       }).toList(),
                     ),
@@ -86,7 +98,8 @@ class _HomePageState extends State<HomePage> {
                       .map<DropdownMenuItem<String>>((String value) {
                     return DropdownMenuItem<String>(
                       value: value,
-                      child: Text(value),
+                      child:
+                          Text(value, style: GoogleFonts.poppins(fontSize: 16)),
                     );
                   }).toList(),
                 ),
@@ -96,8 +109,10 @@ class _HomePageState extends State<HomePage> {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     labelText: "Boy (metre cinsinden)",
+                    labelStyle: GoogleFonts.poppins(),
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -106,8 +121,10 @@ class _HomePageState extends State<HomePage> {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     labelText: "Kilo (kg cinsinden)",
+                    labelStyle: GoogleFonts.poppins(),
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 10),
@@ -116,8 +133,10 @@ class _HomePageState extends State<HomePage> {
                   keyboardType: TextInputType.number,
                   decoration: InputDecoration(
                     labelText: "Yaş",
+                    labelStyle: GoogleFonts.poppins(),
                     border: OutlineInputBorder(
-                        borderRadius: BorderRadius.circular(10)),
+                      borderRadius: BorderRadius.circular(10),
+                    ),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -149,9 +168,10 @@ class _HomePageState extends State<HomePage> {
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)),
                   ),
-                  child: const Text(
+                  child: Text(
                     "Kalori Hesapla",
-                    style: TextStyle(fontSize: 18, color: Colors.white),
+                    style: GoogleFonts.poppins(
+                        fontSize: 18, color: Colors.white),
                   ),
                 ),
                 const SizedBox(height: 20),
@@ -168,15 +188,16 @@ class _HomePageState extends State<HomePage> {
                     );
                   },
                   style: ElevatedButton.styleFrom(
-                    backgroundColor: Colors.green,
+                    backgroundColor: anaYesil,
                     padding: const EdgeInsets.symmetric(
                         vertical: 15, horizontal: 40),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(12)),
                   ),
-                  child: const Text(
+                  child: Text(
                     "Vücut Kitle Endeksi Hesapla",
-                    style: TextStyle(fontSize: 18, color: Colors.white),
+                    style: GoogleFonts.poppins(
+                        fontSize: 18, color: Colors.white),
                   ),
                 ),
               ],
